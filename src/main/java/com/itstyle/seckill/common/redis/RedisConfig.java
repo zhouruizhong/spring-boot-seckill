@@ -31,7 +31,8 @@ public class RedisConfig extends CachingConfigurerSupport {
 	 * 2017年8月13日  科帮网 首次创建
 	 *
 	 */
-	@Bean
+	@Override
+    @Bean
 	public KeyGenerator keyGenerator() {
 		return new KeyGenerator() {
 			@Override

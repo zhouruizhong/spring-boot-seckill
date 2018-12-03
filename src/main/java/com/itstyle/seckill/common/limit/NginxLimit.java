@@ -18,7 +18,8 @@ public class NginxLimit {
 	        final CountDownLatch latch = new CountDownLatch(1);
 	        for (int i = 0; i < 80; i++) {
 	            Thread t = new Thread(new Runnable() {
-	                public void run() {
+	                @Override
+                    public void run() {
 	                    try {
 	                        latch.await();
 	                        String result = NginxLimit.sendGet("http://121.42.155.213");

@@ -73,7 +73,7 @@ public class SeckillServiceImpl implements ISeckillService {
 			killed.setSeckillId(seckillId);
 			killed.setUserId(userId);
 			killed.setState((short)0);
-			killed.setCreateTime(new Timestamp(new Date().getTime()));
+			killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 			dynamicQuery.save(killed);
 			//支付
 			return Result.ok(SeckillStatEnum.SUCCESS);
@@ -100,7 +100,7 @@ public class SeckillServiceImpl implements ISeckillService {
 				killed.setSeckillId(seckillId);
 				killed.setUserId(userId);
 				killed.setState(Short.parseShort(number+""));
-				killed.setCreateTime(new Timestamp(new Date().getTime()));
+				killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 				dynamicQuery.save(killed);
 			}else{
 				return Result.error(SeckillStatEnum.END);
@@ -127,7 +127,7 @@ public class SeckillServiceImpl implements ISeckillService {
 			killed.setSeckillId(seckillId);
 			killed.setUserId(userId);
 			killed.setState(Short.parseShort(number+""));
-			killed.setCreateTime(new Timestamp(new Date().getTime()));
+			killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 			dynamicQuery.save(killed);
 		}else{
 			return Result.error(SeckillStatEnum.END);
@@ -150,7 +150,7 @@ public class SeckillServiceImpl implements ISeckillService {
 			killed.setSeckillId(seckillId);
 			killed.setUserId(userId);
 			killed.setState((short)0);
-			killed.setCreateTime(new Timestamp(new Date().getTime()));
+			killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 			dynamicQuery.save(killed);
 			return Result.ok(SeckillStatEnum.SUCCESS);
 		}else{
@@ -172,7 +172,7 @@ public class SeckillServiceImpl implements ISeckillService {
 			killed.setSeckillId(seckillId);
 			killed.setUserId(userId);
 			killed.setState((short)0);
-			killed.setCreateTime(new Timestamp(new Date().getTime()));
+			killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 			dynamicQuery.save(killed);
 			return Result.ok(SeckillStatEnum.SUCCESS);
 		}else{
@@ -193,7 +193,7 @@ public class SeckillServiceImpl implements ISeckillService {
 				killed.setSeckillId(seckillId);
 				killed.setUserId(userId);
 				killed.setState((short)0);
-				killed.setCreateTime(new Timestamp(new Date().getTime()));
+				killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 				dynamicQuery.save(killed);
 				return Result.ok(SeckillStatEnum.SUCCESS);
 			}else{

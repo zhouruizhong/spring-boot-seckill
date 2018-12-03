@@ -29,7 +29,7 @@ public class SeckillController {
 	
 	private static int corePoolSize = Runtime.getRuntime().availableProcessors();
 	//创建线程池  调整队列数 拒绝服务
-	private static ThreadPoolExecutor executor  = new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10l, TimeUnit.SECONDS,
+	private static ThreadPoolExecutor executor  = new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10L, TimeUnit.SECONDS,
 			new LinkedBlockingQueue<Runnable>(1000));
 	
 	@Autowired

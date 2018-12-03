@@ -51,7 +51,7 @@ public class SeckillDistributedServiceImpl implements ISeckillDistributedService
 					killed.setSeckillId(seckillId);
 					killed.setUserId(userId);
 					killed.setState((short)0);
-					killed.setCreateTime(new Timestamp(new Date().getTime()));
+					killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 					dynamicQuery.save(killed);
 					nativeSql = "UPDATE seckill  SET number=number-1 WHERE seckill_id=? AND number>0";
 					dynamicQuery.nativeExecuteUpdate(nativeSql, new Object[]{seckillId});
@@ -86,7 +86,7 @@ public class SeckillDistributedServiceImpl implements ISeckillDistributedService
 					killed.setSeckillId(seckillId);
 					killed.setUserId(userId);
 					killed.setState((short)0);
-					killed.setCreateTime(new Timestamp(new Date().getTime()));
+					killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 					dynamicQuery.save(killed);
 					nativeSql = "UPDATE seckill  SET number=number-1 WHERE seckill_id=? AND number>0";
 					dynamicQuery.nativeExecuteUpdate(nativeSql, new Object[]{seckillId});
@@ -122,7 +122,7 @@ public class SeckillDistributedServiceImpl implements ISeckillDistributedService
 					killed.setSeckillId(seckillId);
 					killed.setUserId(userId);
 					killed.setState((short)0);
-					killed.setCreateTime(new Timestamp(new Date().getTime()));
+					killed.setCreateTime(new Timestamp(System.currentTimeMillis()));
 					dynamicQuery.save(killed);
 					nativeSql = "UPDATE seckill  SET number=number-? WHERE seckill_id=? AND number>0";
 					dynamicQuery.nativeExecuteUpdate(nativeSql, new Object[]{number,seckillId});
