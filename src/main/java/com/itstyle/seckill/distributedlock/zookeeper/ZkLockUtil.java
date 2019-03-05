@@ -43,7 +43,13 @@ public class ZkLockUtil{
     public static InterProcessMutex getMutex(){
         return SingletonHolder.mutex;
     }
-    //获得了锁
+
+	/**
+	 * 获得了锁
+	 * @param time
+	 * @param unit
+	 * @return
+	 */
     public static boolean acquire(long time, TimeUnit unit){
     	try {
 			return getMutex().acquire(time,unit);
@@ -52,8 +58,11 @@ public class ZkLockUtil{
 			return false;
 		}
     }
-    //释放锁
-    public static void release(){
+
+	/**
+	 * 释放锁
+	 */
+	public static void release(){
     	try {
 			getMutex().release();
 		} catch (Exception e) {

@@ -6,7 +6,7 @@ import org.redisson.api.RedissonClient;
 
 /**
  * redis分布式锁帮助类
- * @author 科帮网 By https://blog.52itstyle.com
+ * @author 周瑞忠 By https://blog.52itstyle.com
  */
 public class RedissLockUtil {
     private static RedissonClient redissonClient;

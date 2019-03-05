@@ -19,6 +19,7 @@ import com.itstyle.seckill.common.entity.SuccessKilled;
 import com.itstyle.seckill.common.enums.SeckillStatEnum;
 import com.itstyle.seckill.repository.SeckillRepository;
 import com.itstyle.seckill.service.ISeckillService;
+
 @Service("seckillService")
 public class SeckillServiceImpl implements ISeckillService {
     /**
@@ -49,7 +50,7 @@ public class SeckillServiceImpl implements ISeckillService {
 		return ((Number) object).longValue();
 	}
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public void deleteSeckill(long seckillId) {
 		String nativeSql = "DELETE FROM  success_killed WHERE seckill_id=?";
 		dynamicQuery.nativeExecuteUpdate(nativeSql, new Object[]{seckillId});

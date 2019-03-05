@@ -44,7 +44,11 @@
 		});
     });
 	window.callback = function(res){
+        console.log(res)
+        // res（未通过验证）= {ret: 1, ticket: null}
+        // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
 	      if(res.ret === 0){
+              alert(res.ticket)   // 票据
 	    	  startSeckill(res)
 	      }
 	}
@@ -54,7 +58,7 @@
 	  		type : 'post',
 	  		data : {'ticket' : res.ticket,'randstr':res.randstr},
 	  		success : function(result) {
-	  			alert(result.code)
+	  			alert(result.code);
 	  		}
 	  	});
 	}
@@ -137,7 +141,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
         </ul>
         <div class="clear"></div>
         <p class="chima">尺码：</p>
-        <p class="buy"><a href="#" id="TencentCaptcha" data-appid="2042633230" data-cbfn="callback">立即购买</a><a href="#">加入购物车</a></p>
+        <p class="buy"><a href="#" id="TencentCaptcha" data-appid="2069520254" data-cbfn="callback">立即购买</a><a href="#">加入购物车</a></p>
    		<div class="clear"></div>
         <div class="fenx"><a href="#"><img src="goods/images/shopdetail/tell07.png"></a></div>
         <p class="fuwu">服务承诺：</p>

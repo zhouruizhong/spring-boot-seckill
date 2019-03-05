@@ -1,5 +1,7 @@
 package com.itstyle.seckill.web;
 
+import com.alibaba.fastjson.JSONObject;
+import com.itstyle.seckill.queue.redis.RedisSender;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -18,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.fastjson.JSONObject;
 import com.itstyle.seckill.common.entity.Result;
 import com.itstyle.seckill.common.entity.Seckill;
 import com.itstyle.seckill.common.utils.HttpClient;
@@ -36,6 +37,9 @@ public class SeckillPageController {
 	
 	@Autowired
 	private ActiveMQSender activeMQSender;
+
+	@Autowired
+	private RedisSender redisSender;
 	
 	@Autowired
 	private HttpClient httpClient;
@@ -75,9 +79,12 @@ public class SeckillPageController {
         String response = (String) json.get("response");
         if("1".equals(response)){
         	//进入队列、假数据而已
-        	Destination destination = new ActiveMQQueue("seckill.queue");
-        	activeMQSender.sendChannelMess(destination,1000+";"+1);
-        	return Result.ok();
+
+            redisSender.sendChannelMess("seckill", 1000+";"+1);
+
+        	//Destination destination = new ActiveMQQueue("seckill.queue");
+        	//activeMQSender.sendChannelMess(destination,1000+";"+1);
+        	return Result.ok("秒殺成功");
         }else{
         	return Result.error("验证失败");
         }

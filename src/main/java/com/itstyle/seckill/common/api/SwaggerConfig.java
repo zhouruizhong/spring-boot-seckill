@@ -11,6 +11,10 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * @author 周瑞忠
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -19,9 +23,13 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("秒杀案例").apiInfo(apiInfo()).select()
 				.apis(RequestHandlerSelectors.basePackage("com.itstyle.seckill.web")).paths(PathSelectors.any()).build();
 	}
-	// 预览地址:swagger-ui.html
+
+	/**
+	 * 预览地址:swagger-ui.html
+	 * @return
+	 */
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title("Spring 中使用Swagger2构建文档").termsOfServiceUrl("https://blog.52itstyle.com")
-				.contact(new Contact("科帮网 ", "https://blog.52itstyle.com/", "345849402@qq.com")).version("1.1").build();
+				.contact(new Contact("周瑞忠 ", "https://blog.52itstyle.com/", "528441592@qq.com")).version("1.1").build();
 	}
 }

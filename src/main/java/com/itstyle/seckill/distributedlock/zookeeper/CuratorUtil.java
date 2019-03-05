@@ -35,7 +35,7 @@ public class CuratorUtil {
         //Common Thread Pool
         ExecutorService fixedThreadPool = new ThreadPoolExecutor(5, 200,
                 0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+                new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
 
         for (int i = 0; i < 5; i++) {
